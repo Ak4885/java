@@ -117,6 +117,25 @@ class Node
              size--;
              return;
          }
+	     
+	void insertAtPos(int val, int pos) 
+        {
+        Node nptr = new Node(val, null);
+        Node ptr = start;
+        pos = pos - 1;
+        for (int i = 1; i < size; i++) 
+        {
+            if (i == pos) 
+            {
+                Node tmp = ptr.getlink();
+                ptr.setlink(nptr);
+                nptr.setlink(tmp);
+               
+            }
+           ptr=ptr.getlink();
+        }
+        size++;
+      }
         
           public void display()
          { 
@@ -160,5 +179,9 @@ ls.display();
 System.out.println("After deleting last element");
 ls.removelast();
 ls.display();
+ls.insertAtPos(11,2);
+System.out.println("After inserting element at given index");
+ls.display();
 }
 }
+
