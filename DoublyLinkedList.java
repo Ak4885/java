@@ -108,6 +108,44 @@ void InsertAtIndex(int index, int data)
 	}
 	size++;
 }
+	void RemoveAtIndex(int index)
+{
+	if(head==null) return;
+	
+	if(index<1||index>size)  return;
+	
+	Link current=head;
+	
+	int i=1;
+	
+	while(i<index)
+	{
+	   current=current.next;
+	   i++;
+	}
+	
+	
+	if(current.next==null)
+	{
+		current.prev.next=null;
+		
+	}
+	
+	if(current.prev==null)
+	{
+		current.next=current;
+		current.prev=null;
+		head=current;
+	}
+	
+	else
+	{
+	current.prev.next=current.next;
+	current.next.prev=current.prev;
+	
+	}
+	size--;
+}
 
 void removeFirst()
 {
@@ -166,6 +204,9 @@ public static void main(String[] args)
 	System.out.println("--------------");
 	dll.InsertAtIndex(2,200);
 	dll.InsertAtIndex(4,400);
+	dll.display();
+	System.out.println("--------------");
+	dll.RemoveAtIndex(2);
 	dll.display();
 }
 }
