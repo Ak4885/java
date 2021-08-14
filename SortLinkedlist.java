@@ -82,8 +82,6 @@ public class SortLinkedlist
 		list.addNode(12);
 		list.addNode(19);
 		list.addNode(10);
-		
-		
 		list.display(list.head);
 		System.out.println();
 		list.insertionSort(list.head);
